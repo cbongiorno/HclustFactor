@@ -12,7 +12,8 @@ def Clustrize(R):
     
     d = dendrogram(S,no_plot=True)
 
-    H = [list(fcluster(S,i,criterion='maxclust')-1) for i in range(1,R.shape[0])]+[d['leaves']]
+    #H = [list(fcluster(S,i,criterion='maxclust')-1) for i in range(1,R.shape[0])]+[d['leaves']]
+    H = [list(fcluster(S,i,criterion='maxclust')-1) for i in range(1,R.shape[0])]+[range(R.shape[0])]
     lvl = sorted( (1-(S[:,2]**2)/2) )+[1.]
     
     return H,lvl
